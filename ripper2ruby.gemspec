@@ -41,6 +41,7 @@ Gem::Specification.new do |s|
     lib/ripper/ruby_builder/token.rb
     lib/ripper/ruby_builder.rb
     lib/ripper2ruby.rb
+    lib/ruby_api.rb
     lib/ruby/aggregate.rb
     lib/ruby/alternation/args.rb
     lib/ruby/alternation/hash.rb
