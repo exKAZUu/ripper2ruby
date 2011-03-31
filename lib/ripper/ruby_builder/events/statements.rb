@@ -12,6 +12,10 @@ class Ripper
         body = body.to_chained_block(nil, statements) unless statements.empty?
         body
       end
+        
+      def on_bodystmt(body, rescue_block, else_block, ensure_block)  # for Ripper1.9.1
+        on_body_stmt(body, rescue_block, else_block, ensure_block)
+      end
 
       def on_paren(node)
         node = Ruby::Statements.new(node) unless node.is_a?(Ruby::ArgsList) || node.is_a?(Ruby::Params)

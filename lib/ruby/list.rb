@@ -17,7 +17,9 @@ module Ruby
     end
     
     def method_missing(method, *args, &block)
-      elements.respond_to?(method) ? elements.send(method, *args, &block) : super
+      # fix to issue of flatten (flatten method removes its reveiver)
+      method != :to_ary && method != :to_a &&
+        elements.respond_to?(method) ? elements.send(method, *args, &block) : super
     end
   end
   

@@ -47,8 +47,16 @@ class Ripper
         end
       end
 
+      def on_regexp_new(*args) # for Ripper1.9.1
+        on_xstring_new(*args)
+      end
+
       def on_xstring_add(string, content)
         on_string_add(string, content)
+      end
+
+      def on_regexp_add(string, content) # for Ripper1.9.1
+        on_xstring_add(string, content)
       end
 
       def on_word_new
